@@ -2,5 +2,6 @@
 
 uint32_t netmask_decode(uint8_t bits)
 {
-    return 0xFFFFFF00;
+    uint32_t positive_mask = (1 << (32 - bits)) - 1;
+    return ~positive_mask;
 }
