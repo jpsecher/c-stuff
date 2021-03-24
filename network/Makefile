@@ -11,7 +11,7 @@ LDFLAGS += -lCppUTest
 #LDFLAGS += -lCppUTestExt
 
 test: test.o netmask.o netmask-test.o
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) -c $(CPPFLAGS) -o $@ $<
