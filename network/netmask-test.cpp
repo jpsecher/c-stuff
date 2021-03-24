@@ -1,4 +1,5 @@
 #include "CppUTest/TestHarness.h"
+#include "netmask.h"
 
 TEST_GROUP(FirstTestGroup)
 {
@@ -6,12 +7,5 @@ TEST_GROUP(FirstTestGroup)
 
 TEST(FirstTestGroup, FirstTest)
 {
-    FAIL("Fail me!");
-}
-
-TEST(FirstTestGroup, SecondTest)
-{
-    STRCMP_EQUAL("hello", "world");
-    LONGS_EQUAL(1, 2);
-    CHECK(false);
+    UNSIGNED_LONGS_EQUAL(0xFFFFFF00, netmask_decode(24));
 }
