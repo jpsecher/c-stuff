@@ -4,13 +4,16 @@ Various scratch-pad routines with unit tests!
 
 ## One-time setup
 
+### MacOS
+
     $ brew install cpputest
+
+### Debian-ish
+
+    $ sudo apt -y install libcpputest-dev
 
 ## Usage
 
-### MacOS
-
-    $ export CPPUTEST_HOME=$(brew --prefix cpputest)
     $ cd network
     $ make
     $ ./test
