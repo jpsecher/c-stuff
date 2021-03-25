@@ -18,3 +18,10 @@ TEST(Netmask, Encode)
     UNSIGNED_LONGS_EQUAL(20, netmask_encode(0xFFFFF400));
     UNSIGNED_LONGS_EQUAL(16, netmask_encode(0xFFFF0000));
 }
+
+TEST(Netmask, String)
+{
+    STRCMP_EQUAL("255.255.255.0", netmask_to_str(0xFFFFFF00));
+    STRCMP_EQUAL("255.255.248.0", netmask_to_str(0xFFFFF800));
+    STRCMP_EQUAL("255.0.0.0", netmask_to_str(0xFF000000));
+}

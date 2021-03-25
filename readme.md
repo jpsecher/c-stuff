@@ -15,6 +15,5 @@ Various scratch-pad routines with unit tests!
 ## Usage
 
     $ cd network
-    $ make
-    $ ./test
+    $ make && ./test
     $ make clean
