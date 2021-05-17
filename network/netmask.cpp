@@ -1,6 +1,7 @@
 #include "netmask.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 uint32_t netmask_decode(uint8_t bits)
 {
@@ -21,24 +22,15 @@ char const * netmask_to_str(uint32_t mask)
     return buffer;
 }
 
-uint8_t octet_str_len(uint8_t number)
-{
-    if (number < 10)
-        return 1;
-    if (number < 100)
-        return 2;
-    return 3;
-}
-
 uint32_t netmask_from_str(char const * str)
 {
-    uint8_t index = 0;
-    int i1 = atoi(str + index);
-    index += octet_str_len(i1) + 1;
-    int i2 = atoi(str + index);
-    index += octet_str_len(i2) + 1;
-    int i3 = atoi(str + index);
-    index += octet_str_len(i3) + 1;
-    int i4 = atoi(str + index);
+#   define DOT "."
+    int i1 = atoi(str);
+    str = strstr(str, DOT) + 1;
+    int i2 = atoi(str);
+    str = strstr(str, DOT) + 1;
+    int i3 = atoi(str);
+    str = strstr(str, DOT) + 1;
+    int i4 = atoi(str);
     return (i1 << 24) | (i2 << 16) | (i3 << 8) | i4;
 }

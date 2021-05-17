@@ -1,4 +1,16 @@
-{ "folders":
+{ "build_systems":
+  [ { "file_regex": "^([^\n:]+):([0-9]+):([0-9]+): (.*)$"
+    , "name": "network"
+    , "working_dir": "${project_path}/../network"
+    , "shell_cmd": "make && ./test"
+    , "variants":
+      [ { "name": "clean"
+        , "shell_cmd": "make clean"
+        }
+      ]
+    }
+  ]
+, "folders":
   [ { "path": ".."
     , "file_exclude_patterns":
       []

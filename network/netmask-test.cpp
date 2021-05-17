@@ -32,11 +32,6 @@ TEST(Netmask, FromString)
     UNSIGNED_LONGS_EQUAL(0xFFFFFFFF, netmask_from_str("255.255.255.255"));
     UNSIGNED_LONGS_EQUAL(0xFFFFF800, netmask_from_str("255.255.248.0"));
     UNSIGNED_LONGS_EQUAL(0x0A080800, netmask_from_str("10.8.8.0"));
-}
-
-TEST(Netmask, Octet)
-{
-    UNSIGNED_LONGS_EQUAL(1, octet_str_len(0));
-    UNSIGNED_LONGS_EQUAL(2, octet_str_len(10));
-    UNSIGNED_LONGS_EQUAL(3, octet_str_len(128));
+    UNSIGNED_LONGS_EQUAL(0x0A0F0801, netmask_from_str("010.015.008.1"));
+    UNSIGNED_LONGS_EQUAL(0x01020304, netmask_from_str("1.2.3.4:5025"));
 }
